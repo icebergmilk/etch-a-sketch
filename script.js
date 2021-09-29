@@ -1,5 +1,5 @@
 function hover(element) {
-    element.target.style.backgroundColor = 'gray';
+    element.target.classList.add('draw');
 }
 
 function creatGrid() {
@@ -16,4 +16,15 @@ function creatGrid() {
     }
 }
 
+function clear() {
+    const grids = document.querySelectorAll('.grid');
+    grids.forEach((grid) => {
+        grid.classList.remove('draw');
+    });
+}
+
 creatGrid();
+
+document.querySelector('#clear').addEventListener('click', () => {
+    clear();
+});

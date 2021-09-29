@@ -8,8 +8,12 @@
     border: 2px solid darkgray;
 }
 
-div.grid {
+.grid {
     background-color: lightgray;
     width: 20px;
     height: 20px;
+}
+
+.draw {
+    background-color: gray;
 }
