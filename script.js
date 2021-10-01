@@ -1,13 +1,18 @@
+const CONTAINER_SIZE = 320;
+
 function hover(element) {
     element.target.classList.add('draw');
 }
 
-function creatGrid() {
+function creatGrid(gridSize = 16) {
+    console.log(`GRID SIZE: ${gridSize}`);
     const container = document.querySelector('#container');
-    for (let i = 0; i < 16; i++) {
-        for (let j = 0; j < 16; j++) {
+    for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
             const grid = document.createElement('div');
             grid.classList.add('grid');
+            grid.style.width = `${CONTAINER_SIZE / gridSize}px`;
+            grid.style.height = `${CONTAINER_SIZE / gridSize}px`;
             grid.addEventListener('mouseover', (e) => {
                 hover(e);
             });
@@ -16,12 +21,21 @@ function creatGrid() {
     }
 }
 
+function createNewGrid() {
+    const newSize = parseInt(prompt('Squares per side? '));
+    if (!newSize) {
+        creatGrid();
+    } else {
+        creatGrid(newSize);
+    }
+}
+
 function clear() {
     const container = document.querySelector('#container');
     while(container.hasChildNodes()) {
         container.removeChild(container.lastChild);
     }
-    creatGrid();
+    createNewGrid();
 }
 
 creatGrid();
