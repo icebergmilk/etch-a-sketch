@@ -5,7 +5,6 @@ function hover(element) {
 }
 
 function createGrid(gridSize = 16) {
-    console.log(`GRID SIZE: ${gridSize}`);
     const container = document.querySelector('#container');
     for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
@@ -40,6 +39,4 @@ function clear() {
 
 createGrid();
 
-document.querySelector('#clear').addEventListener('click', () => {
-    clear();
-});
+document.querySelector('#clear').addEventListener('click', clear);
