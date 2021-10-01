@@ -4,7 +4,7 @@ function hover(element) {
     element.target.classList.add('draw');
 }
 
-function creatGrid(gridSize = 16) {
+function createGrid(gridSize = 16) {
     console.log(`GRID SIZE: ${gridSize}`);
     const container = document.querySelector('#container');
     for (let i = 0; i < gridSize; i++) {
@@ -24,9 +24,9 @@ function creatGrid(gridSize = 16) {
 function createNewGrid() {
     const newSize = parseInt(prompt('Squares per side? '));
     if (!newSize) {
-        creatGrid();
+        createGrid();
     } else {
-        creatGrid(newSize);
+        createGrid(newSize);
     }
 }
 
@@ -38,7 +38,7 @@ function clear() {
     createNewGrid();
 }
 
-creatGrid();
+createGrid();
 
 document.querySelector('#clear').addEventListener('click', () => {
     clear();
