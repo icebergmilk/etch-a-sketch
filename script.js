@@ -17,10 +17,11 @@ function creatGrid() {
 }
 
 function clear() {
-    const grids = document.querySelectorAll('.grid');
-    grids.forEach((grid) => {
-        grid.classList.remove('draw');
-    });
+    const container = document.querySelector('#container');
+    while(container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+    }
+    creatGrid();
 }
 
 creatGrid();
